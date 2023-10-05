@@ -6,6 +6,16 @@
 trigger:
 - main
 
+pool:
+  name: Self-Hosted-Agent
+  demands: agent.name -equals FortifyAgent01
+
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      # Write your PowerShell commands here.
+      
+      Write-Host "Hello World"
+      ./script-integrasi-dastfull.ps1
