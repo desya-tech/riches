@@ -17,6 +17,19 @@ steps:
     script: |
       # Write your PowerShell commands here.
       
-      Write-Host "Hello World"
-      dir
-      #./script-integrasi-dastfull.ps1
+      Write-Host "--- Start Script for Scanning Fortify DAST ---"
+      #./script-integrasi-dastfull.ps1Param (
+      $URL_DAST_API = "https://10.30.100.57:85/api", 
+      $URL_SSC = "https://10.30.100.55:8443/ssc", 
+      $APITokenSSC = "NzNkYmQyNDMtMmZlYi00ZTQwLWEwMGUtZTVhYWFjMzZlNWJi", 
+      $cicdToken="88c1853d-ce99-40fb-a836-aea40c68792e"
+      )
+      $url_dast="$URL_DAST_API/scans/start-scan-cicd"
+      $body='{
+        "cicdToken": "' + $cicdToken + '"
+      }'
+      $Header= @{"Authorization" = "FortifyToken $APITokenSSC"}
+      $dastscanapp = Invoke-RestMethod -Method Post -Headers $Header -ContentType "application/json" -Body $body -uri $url_dast
+      $hasil_dastscanapp = $dastscanapp.id
+      Write-Host ("Scan ID: " + $hasil_dastscanapp)
+      
