@@ -1,0 +1,1 @@
+Invoke-Expression ("C:\Program Files\Fortify\Fortify_SCA_and_Apps_22.1.0\bin\scancentral.bat" -url "https://10.30.100.56:8443/scancentral-ctrl/" start -bt none -application "riches-azure" -version "v1" -b riches_azure -upload -uptoken 63770e04-fd31-465e-89e3-45336433095c)
