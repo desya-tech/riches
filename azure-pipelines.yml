@@ -12,9 +12,13 @@ pool:
 
 steps:
 
-- task: CmdLine@2
+- task: PowerShell@2
   inputs:
+    targetType: 'inline'
     script: |
+      # Write your PowerShell commands here.
       
-      echo Scanning SAST
-      "C:\\Program Files\\Fortify\\Fortify_SCA_and_Apps_22.1.0\\bin\\scancentral.bat" -url "https://10.30.100.56:8443/scancentral-ctrl/" start -bt none -application "riches-azure" -version "v1" -b riches_azure -upload -uptoken 63770e04-fd31-465e-89e3-45336433095c
+      Write-Host "Hello World"
+      ./script-scanning-dast.ps1
+      #echo Scanning SAST
+      #"C:\\Program Files\\Fortify\\Fortify_SCA_and_Apps_22.1.0\\bin\\scancentral.bat" -url "https://10.30.100.56:8443/scancentral-ctrl/" start -bt none -application "riches-azure" -version "v1" -b riches_azure -upload -uptoken 63770e04-fd31-465e-89e3-45336433095c
