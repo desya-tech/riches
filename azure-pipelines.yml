@@ -18,4 +18,4 @@ steps:
       # Write your PowerShell commands here.
       
       Write-Host "Hello World"
-      ./script-integrasi-dastfull.ps1
+      #./script-integrasi-dastfull.ps1
