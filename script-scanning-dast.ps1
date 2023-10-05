@@ -35,5 +35,5 @@ $projectVersionId = $runstatus.item.applicationVersionId
 $projectVersionName = $runstatus.item.applicationVersionName
 $appn = $runstatus.item.applicationName
 $appid = $runstatus.item.applicationId
-Invoke-Expression(Start-Process -FilePath "C:\Program Files\Fortify\Fortify_SCA_and_Apps_22.1.0\bin\scancentral.bat" -ArgumentList '-url "https://10.30.100.56:8443/scancentral-ctrl/" start -bt none -application $appn -version $appid -b riches_azure -upload -uptoken 63770e04-fd31-465e-89e3-45336433095c' -NoNewWindow -Wait)
+Invoke-Expression(Start-Process -FilePath "C:\Program Files\Fortify\Fortify_SCA_and_Apps_22.1.0\bin\scancentral.bat" -ArgumentList '-url "https://10.30.100.56:8443/scancentral-ctrl/" start -bt none -application "$appn" -version "$appid" -b riches_azure -upload -uptoken 63770e04-fd31-465e-89e3-45336433095c' -NoNewWindow -Wait)
 
