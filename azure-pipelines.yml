@@ -19,7 +19,8 @@ steps:
       
       Write-Host "--- Start Script for Scanning Fortify DAST ---"
       #./script-integrasi-dastfull.ps1
-      
+      Param(
       $URL_DAST_API = "https://10.30.100.57:85/api", 
       $URL_SSC = "https://10.30.100.55:8443/ssc"
+      )
       
