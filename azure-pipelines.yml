@@ -8,7 +8,7 @@ trigger:
 
 pool:
   name: Self-Hosted-Agent
-  demands: agent.name -equals FortifyAgent02
+  demands: agent.name -equals FortifyAgent01
 
 steps:
 - task: PowerShell@2
