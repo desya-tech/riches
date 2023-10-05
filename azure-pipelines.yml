@@ -17,6 +17,6 @@ steps:
     script: |
       # Write your PowerShell commands here.
       
-      Write-Host "--- Start Script for Scanning Fortify DAST ---"
-      #./script-integrasi-dastfull.ps1
+      Write-Host "--- Start Script for Scanning Fortify SAST ---"
+      ./script-scanning-sast.ps1
       
