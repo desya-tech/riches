@@ -33,17 +33,3 @@ $projectVersionId = $runstatus.item.applicationVersionId
 $projectVersionName = $runstatus.item.applicationVersionName
 $appn = $runstatus.item.applicationName
 $appid = $runstatus.item.applicationId
-
-# step 4 - Trigger Scan SAST
-## step 4.1 - mengarahkan ke folder scancentral
-$command = "C:\Program Files\Fortify\Fortify_SCA_and_Apps_22.1.0\bin\scancentral.bat"
-## step 4.2 - trigger scanning dengan script SAST
-$arguments = "-url $sc_url start -bt none -application $appn -version $projectVersionName -b $appn -upload -uptoken $CIToken"
-write-host $arguments "arguments"
-function Triggerscanning($val1, $val2) {
-	Write-Host ("Trigger Scan App SAST!")
-	Write-Host "$val1 $val2"
-	$output = Invoke-Expression "$val1 $val2"
-	return $output
-}
-$output=Triggerscanning($command,$arguments)
