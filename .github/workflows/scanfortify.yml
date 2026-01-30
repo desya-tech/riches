@@ -1,4 +1,4 @@
-name: Run DAST Scan (Self Hosted)
+name: Security Scan (SAST & DAST)
 
 on:
   push:
@@ -6,16 +6,41 @@ on:
   workflow_dispatch:
 
 jobs:
-  scandast:
+
+  # ======================
+  # SAST JOB
+  # ======================
+  scansast:
     runs-on:
       - self-hosted
 
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
-        
-      - name: Set permission
+
+      - name: Set permission SAST
+        run: chmod +x scansast.sh
+
+      - name: Run SAST Scan
+        run: ./scansast.sh
+
+
+  # ======================
+  # DAST JOB
+  # ======================
+  scandast:
+    runs-on:
+      - self-hosted
+
+    # Kalau mau DAST jalan SETELAH SAST sukses
+    needs: scansast
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Set permission DAST
         run: chmod +x scandast.sh
-        
+
       - name: Run DAST Scan
         run: ./scandast.sh
