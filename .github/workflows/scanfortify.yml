@@ -14,6 +14,9 @@ jobs:
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
-
+        
+      - name: Set permission
+        run: chmod +x scandast.sh
+        
       - name: Run DAST Scan
         run: ./scandast.sh
