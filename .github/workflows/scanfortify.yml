@@ -9,7 +9,6 @@ jobs:
   scandast:
     runs-on:
       - self-hosted
-      - desya-local
 
     steps:
       - name: Checkout source
