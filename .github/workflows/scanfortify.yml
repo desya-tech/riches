@@ -12,7 +12,7 @@ jobs:
   # ======================
   scansast:
     runs-on:
-      - ast
+      - self-hosted
 
     steps:
       - name: Checkout source
@@ -30,7 +30,7 @@ jobs:
   # ======================
   scandast:
     runs-on:
-      - ast
+      - self-hosted
 
     # Kalau mau DAST jalan SETELAH SAST sukses
     needs: scansast
