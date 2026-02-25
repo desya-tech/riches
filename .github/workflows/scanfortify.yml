@@ -22,7 +22,7 @@ jobs:
         run: chmod +x scansast.sh
 
       - name: Run SAST Scan
-        run: echo "ini sast"
+        run: ./scansast.sh
   
   # ======================
   # SCA JOB
@@ -62,4 +62,4 @@ jobs:
         run: chmod +x scandast.sh
 
       - name: Run DAST Scan
-        run: echo "ini dast"
+        run: ./scandast.sh
