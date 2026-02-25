@@ -6,8 +6,8 @@
 APP_ID="riches_test"
 IQ_URL="https://sonatype.kikoichi.dev/"
 AUTH="lLUNFJfN:eh7FRouBEjNgY5DnhkQGCG5Kg9PwwgosBcYkkMRdAYhp"
-TARGET_FILE="requirements.txt"
-CLI_JAR="./nexus-cli.jar"
+TARGET_FILE="/opt/integration/sca/requirements.txt"
+CLI_JAR="/opt/integration/sca/nexus-cli.jar"
 
 # Threshold
 CRITICAL_THRESHOLD=10
