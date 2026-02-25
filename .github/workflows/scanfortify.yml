@@ -23,6 +23,23 @@ jobs:
 
       - name: Run SAST Scan
         run: ./scansast.sh
+  
+  # ======================
+  # SCA JOB
+  # ======================
+  scansca:
+    runs-on:
+      - self-hosted
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Set permission SCA
+        run: chmod +x scansca.sh
+
+      - name: Run SAST SCA
+        run: ./scansca.sh
 
 
   # ======================
