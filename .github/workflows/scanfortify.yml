@@ -37,7 +37,7 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v4
 
-      - name: Set permission SCAs
+      - name: Set permission SCA
         run: chmod +x scansca.sh
 
       - name: Run SAST SCA
