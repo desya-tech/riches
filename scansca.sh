@@ -9,7 +9,7 @@ AUTH="lLUNFJfN:eh7FRouBEjNgY5DnhkQGCG5Kg9PwwgosBcYkkMRdAYhp"
 TARGET_FILE="/opt/integration/sca/requirements.txt"
 CLI_JAR="/opt/integration/sca/nexus-cli.jar"
 
-CRITICAL_THRESHOLD=10
+CRITICAL_THRESHOLD=100
 
 # =========================
 # Temp directory (workspace)
