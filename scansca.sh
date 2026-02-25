@@ -12,12 +12,11 @@ CLI_JAR="/opt/integration/sca/nexus-cli.jar"
 CRITICAL_THRESHOLD=10
 
 # =========================
-# Temp directory (IMPORTANT)
+# Temp directory (workspace)
 # =========================
-TMP_DIR="/opt/integration/sca/tmp"
+TMP_DIR="$(pwd)/tmp"
 
 mkdir -p "$TMP_DIR"
-chmod 777 "$TMP_DIR"
 
 echo "Using TMP_DIR=$TMP_DIR"
 
@@ -33,6 +32,14 @@ SCAN_OUTPUT=$(java -Djava.io.tmpdir="$TMP_DIR" -jar "$CLI_JAR" \
     "$TARGET_FILE" 2>&1)
 
 echo "$SCAN_OUTPUT"
+
+# =========================
+# Detect execution error
+# =========================
+if echo "$SCAN_OUTPUT" | grep -q "The scan could not be performed"; then
+    echo " Scan execution FAILED"
+    exit 2
+fi
 
 # =========================
 # Extract Metrics
