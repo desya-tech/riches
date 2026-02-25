@@ -25,7 +25,7 @@ jobs:
         run: ./scansast.sh
   
   # ======================
-  # SCA JOB
+  # SCA JOB1
   # ======================
   scansca:
     runs-on:
