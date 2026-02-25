@@ -9,16 +9,24 @@ AUTH="lLUNFJfN:eh7FRouBEjNgY5DnhkQGCG5Kg9PwwgosBcYkkMRdAYhp"
 TARGET_FILE="/opt/integration/sca/requirements.txt"
 CLI_JAR="/opt/integration/sca/nexus-cli.jar"
 
-# Threshold
 CRITICAL_THRESHOLD=10
+
+# =========================
+# Temp directory (IMPORTANT)
+# =========================
+TMP_DIR="/opt/integration/sca/tmp"
+
+mkdir -p "$TMP_DIR"
+chmod 777 "$TMP_DIR"
+
+echo "Using TMP_DIR=$TMP_DIR"
 
 # =========================
 # Run Scan
 # =========================
 echo "Starting SCA Scan..."
-mkdir -p /tmp/nexus-iq
-chmod 777 /tmp/nexus-iq
-SCAN_OUTPUT=$(java -jar "$CLI_JAR" \
+
+SCAN_OUTPUT=$(java -Djava.io.tmpdir="$TMP_DIR" -jar "$CLI_JAR" \
     -i "$APP_ID" \
     -s "$IQ_URL" \
     -a "$AUTH" \
@@ -35,7 +43,6 @@ CRITICAL=$(echo "$AFFECTED_LINE" | grep -oP '\d+(?= critical)')
 SEVERE=$(echo "$AFFECTED_LINE" | grep -oP '\d+(?= severe)')
 MODERATE=$(echo "$AFFECTED_LINE" | grep -oP '\d+(?= moderate)')
 
-# Default 0 kalau kosong
 CRITICAL=${CRITICAL:-0}
 SEVERE=${SEVERE:-0}
 MODERATE=${MODERATE:-0}
