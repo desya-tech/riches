@@ -16,7 +16,8 @@ CRITICAL_THRESHOLD=10
 # Run Scan
 # =========================
 echo "Starting SCA Scan..."
-
+mkdir -p /tmp/nexus-iq
+chmod 777 /tmp/nexus-iq
 SCAN_OUTPUT=$(java -jar "$CLI_JAR" \
     -i "$APP_ID" \
     -s "$IQ_URL" \
