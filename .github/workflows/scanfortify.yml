@@ -30,6 +30,8 @@ jobs:
   scansca:
     runs-on:
       - self-hosted
+    # Kalau mau DAST jalan SETELAH SAST sukses
+    needs: scansast
 
     steps:
       - name: Checkout source
@@ -50,7 +52,7 @@ jobs:
       - self-hosted
 
     # Kalau mau DAST jalan SETELAH SAST sukses
-    needs: scansast
+    needs: scansca
 
     steps:
       - name: Checkout source
